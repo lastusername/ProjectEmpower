@@ -4,6 +4,7 @@ import { AuthContextProvider } from "@/context/UserContext";
 import { Toaster } from "@/components/ui/toaster";
 import Navbar from "@/components/Navbar";
 import { cn } from "@/lib/utils";
+import { ThemeProvider } from "@/components/themeprovider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,11 +17,18 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <AuthContextProvider>
-          <Navbar />
-          {children}
-          <Toaster />
-        </AuthContextProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <AuthContextProvider>
+            <Navbar />
+            {children}
+            <Toaster />
+          </AuthContextProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

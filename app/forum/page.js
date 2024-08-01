@@ -1,6 +1,8 @@
+"use client"
+
 // pages/forum.js
 import { useState, useEffect } from 'react';
-import { db } from '../firebaseConfig';
+import { firestore } from '@/firebase';
 import { collection, getDocs, addDoc } from 'firebase/firestore';
 
 export default function Forum() {
@@ -9,7 +11,7 @@ export default function Forum() {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const postsCollection = collection(db, 'posts');
+      const postsCollection = collection(firestore, 'posts');
       const postSnapshot = await getDocs(postsCollection);
       const postList = postSnapshot.docs.map(doc => doc.data());
       setPosts(postList);
@@ -19,7 +21,7 @@ export default function Forum() {
 
   const handlePost = async (e) => {
     e.preventDefault();
-    await addDoc(collection(db, 'posts'), { content: newPost });
+    await addDoc(collection(firestore, 'posts'), { content: newPost });
     setNewPost('');
     // Refresh posts
   };
