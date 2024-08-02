@@ -25,7 +25,9 @@ export default function RootLayout({ children }) {
         >
           <AuthContextProvider>
             <Navbar />
+            <div className="w-screen h-screen flex items-center justify-center">
             {children}
+            </div>
             <Toaster />
           </AuthContextProvider>
         </ThemeProvider>

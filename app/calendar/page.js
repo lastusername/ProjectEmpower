@@ -15,7 +15,7 @@ export default function CalendarDemo() {
       mode="single"
       selected={date}
       onSelect={setDate}
-      className="rounded-md border w-screen"
+      className="rounded-md border"
     />
   )
 }
