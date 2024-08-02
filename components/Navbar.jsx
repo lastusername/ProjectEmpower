@@ -13,6 +13,8 @@ import {
 } from "@/components/ui/dialog"
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { Textarea } from "@/components/ui/textarea"
+
 
 const Navbar = () => {
   return (
@@ -28,8 +30,8 @@ const Navbar = () => {
               <DialogTitle>Create Event</DialogTitle>
               <DialogDescription>
                 <div className='flex flex-col gap-y-4'>
-                  <Input />
-                  <Input />
+                  <Input placeholder="Title"/>
+                  <Textarea  className = "max-h-60" placeholder="Description"/>
                   <Input />
                   <Input />
                 </div>
