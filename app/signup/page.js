@@ -21,7 +21,7 @@ export default function Page() {
   const router = useRouter();
 
   const handleSubmit = async () => {
-    if (!email || !password || !confirmPassword) {
+    if (!first || !last || !email || !password || !confirmPassword) {
       return toast({
         variant: "destructive",
         title: "Missing Fields",

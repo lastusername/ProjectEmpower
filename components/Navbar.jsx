@@ -59,15 +59,16 @@ const Navbar = () => {
   }
 
   const minute = []
-  for (let i = 0; i <= 0; i++) {
+  for (let i = 0; i <= 60; i++) {
     const formattedNumber = i.toString().padStart(2, '0');
     minute.push(formattedNumber);
   }
 
   const handleSubmit = () => {
     const startSplit = start.split(":")
+    console.log(startSplit)
     const endSplit = end.split(":")
-    if (!hour.includes(startSplit[0]) || !!hour.includes(endSplit[0]) || !minute.includes(startSplit[1]) || !minute.includes(endSplit[1])) {
+    if (!hour.includes(startSplit[0]) || !hour.includes(endSplit[0]) || !minute.includes(startSplit[1]) || !minute.includes(endSplit[1])) {
       return (
         toast({
           variant: "destructive",
