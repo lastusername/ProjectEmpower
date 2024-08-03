@@ -84,7 +84,9 @@ const Navbar = () => {
       description: desc,
       city: city,
       state: state,
-      date: format(date, "MMM d y")
+      date: format(date, "MMM d y"),
+      startTime: start,
+      endTime: end
     }).then(() => {
       return (
         toast({

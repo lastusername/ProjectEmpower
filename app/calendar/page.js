@@ -57,6 +57,7 @@ export default function CalendarDemo() {
             <h1 className="text-2xl">{event.title}</h1>
             <p>{event.description}</p>
             <p className="text-sm">{event.city}, {event.state}</p>
+            <p>{event.startTime} - {event.endTime}</p>
           </div>
         ))}
       </div>

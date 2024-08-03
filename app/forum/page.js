@@ -47,12 +47,12 @@ export default function Forum() {
         }));
         var filteredUsersArray = [];
         usersArray.map((users) => {
-          if (users.email == user.email) {
+          if (users.email == user?.email) {
             filteredUsersArray.push(users);
             set(newDataRef, {
               content: newPost,
               dateSent: format(new Date(), "p"),
-              senderEmail: user.email,
+              senderEmail: user?.email,
               name: filteredUsersArray[0].name,
             });
             setNewPost("");
