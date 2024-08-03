@@ -7,7 +7,7 @@ import { UserAuth } from "@/context/UserContext";
 const page = () => {
   const { user } = UserAuth();
   return (
-    <div>{user.email}</div>
+    <div>{user?.email}</div>
   );
 };
 

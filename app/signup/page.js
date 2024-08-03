@@ -6,6 +6,8 @@ import { UserAuth } from "@/context/UserContext";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Loader2 } from "lucide-react";
+import { push, ref, set, get } from "firebase/database";
+import { database } from "@/firebase";
 
 export default function Page() {
   const [email, setEmail] = useState("");
@@ -14,7 +16,7 @@ export default function Page() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  const { createUser } = UserAuth();
+  const { createUser, user } = UserAuth();
   const { toast } = useToast();
   const router = useRouter();
 
@@ -42,6 +44,12 @@ export default function Page() {
         setTimeout(() => {
           router.push("/profile");
         }, 500);
+        const userRef = ref(database, "user");
+        const newDataRef = push(userRef);
+        set(newDataRef, {
+          email: email,
+          name: first + " " + last,
+        });
       });
     }
   };
